@@ -1,16 +1,13 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Windows Azure CDN POP - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, 节点分布, POP, Azure CDN节点分布, CDN技术文档, CDN帮助文档" description="Learn Windows Azure CDN Point of Presence in China" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date=""
-    wacn.date="11/27/2015"
-    />
+<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Microsoft Azure CDN POPs – Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, node distribution, POP, Azure CDN node distribution, CDN technical documentation, CDN help files" description="Learn Microsoft Azure CDN Points of Presence in China" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<tags ms.service="cdn" ms.date="" wacn.date="11/27/2015" />
 
-# Windows Azure CDN 节点分布
+# Microsoft Azure CDN Node Distribution
 
-下图给出了目前Windows Azure CDN POP （point of presence）分布情况。
+The image below shows how Microsoft Azure CDN POPs (points of presence) are currently distributed.
 
-> **注意** 目前Windows Azure CDN的POP仅覆盖中国大陆地区。
+> **Note** that Microsoft Azure CDN POPs (points of presence) only cover the Mainland China region at present.
 
-![][1]
+ ![][1]
 
 
 
@@ -18,3 +15,5 @@
 
 
 [1]: ./media/cdn-doc/cdn_pops.png
+
+<!---HONumber=CDN_1201_2015-->

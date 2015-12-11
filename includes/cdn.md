@@ -1,87 +1,87 @@
-# 使用 Windows Azure CDN
+# Using Microsoft Azure CDN
 
-Windows Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点上缓存Azure平台上的Storage Blob，Cloud Service和WebSites的静态内容，为开发人员提供一个传送高带宽内容的解决方案。目前本CDN服务也同时支持没有部署在Azure平台上的源站使用。
+The Microsoft Azure content delivery network (CDN) caches static content in Storage Blobs, Cloud Services, and Websites on the Azure platform using large numbers of physical nodes distributed across mainland China in order to provide developers with a solution for delivering high-bandwidth content. This CDN network also currently supports the use of source stations that have not been deployed on the Azure platform.
 
-此任务包括下列步骤：
+This task includes the steps listed below:
 
-+ [步骤 1:创建存储帐户，云服务,网站或媒体服务](#step1)
-+ [步骤 2:创建新的 CDN 终结点](#step2)
-+ [步骤 3:访问 CDN 内容](#step3)
-+ [步骤 4:删除 CDN 中的内容](#step4)
-+ [步骤 5:使用高级管理功能](#step5)
++ [Step 1: Create a storage account, cloud service, website or media service](#step1)
++ [Step 2: Create a new CDN endpoint](#step2)
++ [Step 3: Access CDN content](#step3)
++ [Step 4: Delete content from the CDN](#step4)
++ [Step 5: Use advanced management features](#step5)
 
-使用 CDN 缓存 Windows Azure 数据的优点包括：
+The advantages of using the CDN to cache Microsoft Azure data include:
 
-- 远离内容源并使用需要进行多次“互联网旅行”才能加载内容的应用程序的最终用户可获得更好的性能和用户体验
-- 大型分布式规模可更好地处理瞬时高负载（例如在像产品发布这样的活动开始时）
+- Better performance and user experience for end users of apps with distant content sources which require the use of multiple “Internet journeys” to load content
+- Large-scale distribution enables the system to cope better with transient high loads (for example, at the start of events such as product launches)
 
-现有 Windows Azure 中国客户现在可使用[Windows Azure 管理门户](https://manage.windowsazure.cn/)中的 Windows Azure CDN。 
+Existing Microsoft Azure customers in China can now use the Microsoft Azure CDN in the [Microsoft Azure Management Portal](https://manage.windowsazure.cn/).
 
-## 步骤 1:创建存储帐户，云服务，网站或媒体服务<a id="step1"></a>
-您可以为现有的Windows Azure订阅中的存储账户，云服务，网站或媒体服务创建CDN终结点。您也可以按以下过程创建新的存储帐户，云服务或者网站用于 Windows Azure 订阅。
+## Step 1: Create storage account, cloud service, website or media service<a id="step1"></a>
+You can create CDN endpoints for storage accounts, cloud services, websites, or media services in existing Microsoft Azure subscriptions. You can also create new storage accounts, cloud services, or websites for use in Microsoft Azure subscriptions using the method below:
 
-### 为 Windows Azure 订阅创建存储帐户
-请参阅 [如何创建存储帐户](http://www.windowsazure.cn/zh-cn/documentation/articles/storage-create-storage-account/)
+### Create a storage account for Microsoft Azure subscriptions
+Please refer to [How to Create Storage Accounts](http://www.windowsazure.cn/zh-cn/documentation/articles/storage-create-storage-account/)
 
-### 为 Windows Azure 订阅创建云服务
-请参阅 [如何创建和部署云服务](http://www.windowsazure.cn/zh-cn/documentation/articles/cloud-services-how-to-create-deploy/) 
+### Create a cloud service for Microsoft Azure subscriptions
+Please refer to [How to Create and Deploy Cloud Services](http://www.windowsazure.cn/zh-cn/documentation/articles/cloud-services-how-to-create-deploy/)
 
-### 为 Windows Azure 订阅创建网站
-请参阅 [如何创建和部署网站](http://www.windowsazure.cn/zh-cn/documentation/articles/web-sites-create-deploy/) 
+### Create a website for Microsoft Azure subscriptions
+Please refer to [How to Create and Deploy Websites](http://www.windowsazure.cn/zh-cn/documentation/articles/web-sites-create-deploy/)
 
-### 为 Windows Azure 订阅创建媒体服务
-请参阅 [如何创建和部署媒体服务](http://www.windowsazure.cn/documentation/articles/media-services-create-account/) 
+### Create a media service for Microsoft Azure subscriptions
+Please refer to [How to Create and Deploy Media Services](http://www.windowsazure.cn/documentation/articles/media-services-create-account/)
 
-## 步骤 2:创建新的 CDN 终结点<a id="step2"></a>
-一旦启用对存储帐户，云服务或者网站的 CDN 访问，所有公开可用的对象将有资格获得 CDN 边缘高速缓存。如果您修改一个当前在 CDN 中缓存的对象，则只有 CDN 在缓存内容生存时间到期时刷新了对象的内容后（或通过高级管理功能进行手动刷新），才能通过 CDN 访问新内容。
+## Step 2: Create a new CDN endpoint<a id="step2"></a>
+Once a storage account is enabled, all publicly available objects are entitled to access CDN edge high-speed caching for CDN access to cloud services or websites. If you edit an object that is currently cached in the CDN, the new content will only be accessible via the CDN after the CDN time to live (TTL) expires and the object’s content is updated (or after a manual refresh is performed using the advanced management features).
 
-### 创建新的 CDN 终结点
-1. 在 [Windows Azure 管理门户](https://manage.windowsazure.cn/)的导航窗格中，单击“CDN”。
-2. 在功能区上，单击“新建”。在“新建”对话框上，依次选择“应用服务”、“CDN”和“快速创建”。
+### Create a new CDN endpoint
+1. In the navigation pane of the [Microsoft Azure Management Portal](https://manage.windowsazure.cn/), click on “CDN”.
+2. In the function area, click “Create New”. In the “Create New” dialogue box, select “App Services”, “CDN” and “Quick Create” in that order.
 
-    ![CDN quick create][1]
-3. 在“订阅”下拉列表中选择所要使用的Azure 订阅（如果有多个订阅的话）。
-4. 在“加速类型”下拉列表中选择加速类型。目前支持“WEB加速”，“下载加速”，“HTTP VOD（视频点播）加速”和“Live Streaming（视频直播）加速”。
-5. 在“原始域类型”下拉列表中，选择云服务，存储账户，WEB应用，媒体服务（media service）或者自定义原始域。
-6. 在“原始域”下拉列表中，从可用的云服务，存储帐户，WEB应用或者媒体服务列表中选择一个用于创建CDN终结点。如果“原始域类型”选择的是“自定义原始域”，那么请在“原始域”里输入您自己的原始域地址。
-7. 在“自定义域”中输入要使用的自定义域名如：cdn.yourcompany.com
-8. 在“原点主机标头（origin host header）”中输入您的源站所接受的回源访问host header。当您输入完“自定义域”之后，系统会根据您所选择的“原始域类型”来自动填充一个默认值。具体的规则是，如果您的源站是在Azure上的话，默认值就是相应的源站地址。如果您的源站不在Azure上，默认值是您输入的“自定义域名”，当然您也可以根据自己源站的实际配置情况来修改。
-9. 在“ICP编号”中输入和上一步中所输入的自定义域名相对应的**ICP备案号**（如：京ICP备XXXXXXXX号-X）。
-10. 单击“创建”按钮以创建新的终结点。
-11. 终结点创建后将出现在订阅的终结点的列表中。列表视图显示了用于访问缓存内容的自定义域以及原始域。
+    ![CDN Quick Create][1]
+3. Select all the Azure subscriptions you wish to use from the “Subscriptions” drop-down list (if there are multiple subscriptions).
+4. Select the acceleration type from the “Acceleration Type” drop-down list. The types of acceleration currently supported are “Web Acceleration”, “Download Acceleration”, “HTTP VOD (Video On Demand) Acceleration” and “Live Streaming (Video Direct Broadcast) Acceleration”.
+5. In the “Origin Domain Type” drop-down list, select cloud service, storage account, Web app, media service or a customized origin domain.
+6. In the “Origin Domain” drop-down list, select the endpoint used to create the CDN from the cloud services, storage account, Web app or media services list. If the selected “Origin Domain Type” is “Customized Origin Domain”, please input your own origin domain address under “Origin Domain”.
+7. In “Custom Domain”, enter the customized domain name you wish to use, e.g. cdn.yourcompany.com.
+8. In “Origin Host Header”, enter the return to source access host header accepted by your source station. Once you have entered the “Custom Domain”, the system will automatically fill in a default value based on the “Origin Domain Type” you selected. To be more specific, if your source station is on Azure, the default value will be the corresponding source station address. If your source station is not on Azure, the default value will be the “Custom Domain” that you entered. Of course, you can also modify this based on the actual configuration of your source station.
+9. In the “ICP Number”, enter the corresponding **ICP record number** for the custom domain that you entered (e.g. Jing ICP Bei XXXXXXXX Hao-X).
+10. Click the “Create” button to create the new endpoint.
+11. Once the endpoint has been created, it will appear in the list of subscribed endpoints. The list view shows the custom domains used to access cached content, as well as the origin domains.
 
-原始域是 CDN 所缓存内容的原始位置。自定义域是用于访问CDN缓存内容的URL。
-> **注意** 为终结点创建的配置将不能立即可用：
+The origin domain is the original location of the content cached on the CDN. Custom domains are URLs used to access CDN cache content.
+> **Note** that configurations created for endpoints cannot be used immediately:
 
-> 1. 首先需要审核所提供的自定义域名和ICP编号是否匹配、有效。这个过程需要最多**一个工作日**的时间来完成。
-2. 如果ICP审核没有通过，您需要删除之前创建的这个CDN终结点，然后使用正确的自定义域名和ICP编号重新创建。
-3. 如果ICP审核通过，CDN服务最多需要 **60 分钟**时间进行注册以便通过 CDN 网络传播。与此同时，您还需要按照界面上的提示信息配置CNAME映射信息，这样才可以最终通过自定义域名访问CDN缓存内容。
+> 1. the custom domain name and ICP number provided must first be reviewed to ensure that they match and are valid. This process can take up to **one business day** to complete.
+2. If the details provided do not pass the ICP review, you must delete the CDN endpoint you created and create a new endpoint using the correct custom domain name and ICP number.
+3. If the details pass the ICP review, the CDN service will be registered within **60 minutes** so that it can be propagated by the CDN network. At the same time, you also need to configure the CNAME mapping details, as indicated by the notifications in the interface, before the CDN cache content can finally be accessed via the custom domain name.
 
-## 步骤 3:访问 CDN 内容<a id="step3"></a>
-若要访问 CDN 上的缓存内容，请使用您在步骤2中所提供的自定义域名来访问CDN缓存内容。缓存 Blob 的地址类似于下面的地址（以步骤2中的例子为例）：
+## Step 3: Access CDN content<a id="step3"></a>
+If you want to access content cached on the CDN, please do so using the custom domain name you provided in Step 2. The addresses of cached Blobs are similar to the following address (using the example from Step 2):
 
 `http://cdn.yourcompany.com/<myPublicContainer>/<BlobName>`
 
-## 步骤 4:删除 CDN 中的内容<a id="step4"></a>
-如果您不想继续在 Windows Azure 内容交付网络 (CDN) 中缓存对象，则可执行下列步骤之一：
+## Step 4: Delete content from the CDN<a id="step4"></a>
+If you don’t want to continue to cache objects on the Microsoft Azure content delivery network (CDN), you can use any one of the following procedures:
 
-- 对于 Windows Azure Blob，可从公共容器中删除该 Blob。
-- 生成专用容器代替公用容器。有关更多信息，请参见[限制对容器和 Blob 的访问](http://msdn.microsoft.com/zh-cn/library/dd179354.aspx)。
-- 您可使用管理门户禁用或删除 CDN 终结点。
-- 您可将云服务修改为不再响应此对象的请求。
+- In the case of Microsoft Azure Blobs, delete the Blob from the Public Container.
+- Generate a Private Container to replace the Public Container. For more information on this, please refer to [Restricting Access to Containers and Blobs](http://msdn.microsoft.com/zh-cn/library/dd179354.aspx).
+- You can use the Management Portal to ban or delete CDN endpoints.
+- You can change the Cloud Service to a request that no longer responds to this object.
 
-已在 CDN 中缓存的对象将保持缓存状态，直到该对象的生存时间到期为止。当生存时间到期时，CDN 将查看 CDN 终结点是否仍有效，且是否仍可对该对象进行匿名访问。如果不能访问，则不再对该对象进行缓存。
+Objects already cached in the CDN will remain in a cached state until the TTL for the object expires. Once the TTL expires, the CDN will check whether the CDN endpoint is still valid and whether anonymous access to the object is still possible. If the object cannot be accessed, it will no longer be cached.
 
 
-## 步骤 5:使用高级管理功能<a id="step5"></a>
-当您创建好CDN终结点之后，除了可以在管理门户中查看基本的配置信息和对CDN终结点做“禁用/启用”和“删除”等基本操作外，您还可以通过点击“管理”按钮，跳转到另外的管理页面进行高级管理功能：
+## Step 5: Use advanced management features<a id="step5"></a>
+Once you have created a new CDN endpoint, you can use the Management Portal to check the basic configuration details and perform other basic operations, such as banning/enabling and deleting CDN endpoints. You can also click on the “Management” button to jump to another management page, where you can use the advanced management functions:
 
 ![Manage Button][2]
-> **注意：您将被引导至另外的CDN管理页面，它不属于Windows Azure管理门户的一部分。（请注意允许浏览器打开新的窗口）**
+> **Note: You will be taken to another CDN management page that is not part of the Microsoft Azure Management Portal. (Please ensure that you allow your browser to open the new window)**
 
 ![Adv Portal][3]
 
-这个高级管理界面提供了“概览”，“域名管理”，“流量报表”，“带宽报表”，“缓存刷新”，“内容预取”，以及“日志下载”等功能。具体的使用和配置方式，可以点击进入相应的功能模块，然后查看对应的帮助文件。或者通过左侧导航栏的“帮助文档”，直接查看。
+This advanced management interface provides features including “Overview”, “Domain Name Management”, “Traffic Report”, “Bandwidth Report”, “Cache Refresh”, “Content Prefetch”, and “Log Download”. For specific methods of using and configuring the interface, you can click to enter the corresponding function modules, and then read the corresponding help files. You can also open the help files directly via the left navigation bar.
 
 
 
@@ -97,3 +97,5 @@ Windows Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物�
 [1]: ./media/cdn/image005.png
 [2]: ./media/cdn/image002.png
 [3]: ./media/cdn/how_to_001.png
+
+<!---HONumber=CDN_1201_2015-->
