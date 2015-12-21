@@ -1,129 +1,135 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Overview of Windows Azure CDN in China - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, CDN加速, CDN服务, 主流CDN, 多场景加速, 免费CDN, CDN网站加速, 网站加速, 网页加速, 静态加速, 下载加速, VOD加速, 流媒体直播加速, 云服务,  存储账户,缓存刷新, 回源, 云加速, 加速效果, 节点, 流量, CNAME, 带宽, 网速, 防盗链,https加速, 低成本带宽, 访问加速, 小文件加速, 下载加速, 大文件加速, 流媒体加速, HTTPS安全加速, 缓存刷新, 内容预加载, 防盗链, 日志下载, CDN技术文档, CDN帮助文档, CDN FAQ" description="Learn the overview of WIndows Azure CDN, advantages, typical scenarios and key features." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Overview of Microsoft Azure CDN in China - Azure Feature Guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, CDN acceleration, CDN service, mainstream CDN, multi-scenario acceleration, free CDN, CDN website acceleration, website acceleration, webpage acceleration, static acceleration, download acceleration, VOD acceleration, streaming media webcast acceleration, cloud service,  storage account, cache refresh, return to origin, cloud acceleration, acceleration results, node, traffic, CNAME, bandwidth, network speed, anti-theft chain, https acceleration, low-cost bandwidth, access acceleration, small file acceleration, download acceleration, large file acceleration, streaming media acceleration, HTTPS secure acceleration, cache refresh, content pre-loading, anti-theft chain, log download, CDN technical documentation, CDN help files, CDN FAQs" description="Get an overview of Microsoft Azure CDN and its advantages, typical scenarios and key features." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
 <tags ms.service=""
     ms.date=""
-    wacn.date="11/27/2015"
+    wacn.date="12/4/2015"
     />
 
-# Windows Azure CDN （内容交付网络）概述
+# Overview of Microsoft Azure CDN (Content Delivery Network)
 
-Windows Azure CDN （内容传送网络） 通过遍布在中国大陆的众多物理节点上缓存Azure平台上的Storage Blob，Cloud Service和WebSites的静态内容，以及为媒体服务提供流式内容分发提供加速，为开发人员提供一个传送高带宽内容的解决方案。目前本CDN服务也同时支持没有部署在Azure平台上的源站。
+The Microsoft Azure (content delivery network) caches static content in Storage Blobs, Cloud Services, and Websites on the Azure platform using large numbers of physical nodes distributed across Mainland China, providing media services with acceleration for streaming content delivery, and offering developers with solutions for delivering high-bandwidth content. This CDN service also currently supports the use of source stations that have not been deployed on the Azure platform.
 
-有关 Windows Azure CDN 的详细信息和价格，请参阅 [Windows Azure CDN服务介绍](http://www.windowsazure.cn/home/features/cdn/)。
+For more details and pricing for Microsoft Azure CDN, see [Introduction to the Microsoft Azure CDN Service](http://www.windowsazure.cn/home/features/cdn/).
 
-如果您已经是Windows Azure CDN的现有用户，请访问[Windows Azure CDN管理门户](https://manage.windowsazure.cn)来管理CDN加速域名。具体使用指南请参见[使用 Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)
+If you are an existing user of the Microsoft Azure CDN, please visit the [Microsoft Azure CDN Management Portal](https://manage.windowsazure.cn) to manage CDN acceleration domain names. See [Using Microsoft Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/) for a more specific user guide.
 
-+ [什么是CDN](#step1)
-+ [Windows Azure CDN优势](#step2)
-+ [Windows Azure CDN功能](#step3)
++ [What is a CDN?](#step1)
++ [Advantages of Microsoft Azure CDN](#step2)
++ [Features of Microsoft Azure CDN](#step3)
 
-## 什么是CDN<a id="step1"></a>
+## What is a CDN?<a id="step1"></a>
 
-CDN 的全称是 Content Delivery Network，即内容传送网络。目前几乎所有大型网站都在使用这一技术，但该技术并非大型网站的专利。其基本思路是尽可能避开互联网上有可能 影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器，以互联网为基础构建一层更智能的虚拟网络，CDN 系统能够实时地根据网 络流量和各节点的连接、负载状况，以及到用户的距离和响应时间等综合信息，将用户的请 求重新导向距离用户最近的服务节点。
+CDN stands for content delivery network. Virtually all large-scale websites make use of this technology today, but the technology is by no means exclusive to large websites. The basic thinking behind CDNs is to avoid bottlenecks and other parts of the Internet that could affect data transfer rates and stability, in order to make content transfers faster and more stable. By placing node servers in different places across the network and building a more intelligent layer of virtual networks using the Internet as a foundation, CDN systems can redirect user requests in real time to the service node closest to the user based on the status of network traffic and node connections and loads, as well as overall information on distance to the user and response times.
  
-以微软公司的网站为例，微软是一家美国公司，但客户遍及全球。这也意味着全球各地都有 用户可能需要访问微软网站，或从 Microsoft Update 下载产品更新。如果只将网站服务器部署在美国的一个位置，该地区周围的用户访问时无疑可以获得满意的速度，毕竟距离近， 网络延迟也低。但如果中国的用户需要通过美国这一位置的服务器下载产品更新，就需要在中国和美国之间往返传输所有数据包。由于线路总长度高达数千公里，这会造成极大的延迟。
+Taking the Microsoft website as an example, Microsoft may be an American company, but its customers are distributed across the globe. This means that there are users in every part of the world who need to access the Microsoft website or download product updates from Microsoft Update. If the website servers were only deployed in a single location in the US, users in the areas around this location could undoubtedly achieve satisfactory speeds when accessing the website, as the distances involved would be small and network delays would also be minimal. However, if a user in China tried to download product updates from a server in this US location, this would require that all the data packets were transferred back and forth between China and the US. As the total length of the route extends to thousands of kilometers, this would cause enormous delays.
 
-为了解决这个问题，可以在中国放置 CDN节点。CDN节点可以自动将数据缓存到全中国主要城市的数据中心内，让内容和用户之间的距离更短，进而降低传输数据所需的时间。通过 CDN 的缓存，用户可以就近获得所需内容，解决 Internet 网络拥挤的状况，提高用户访问网站和应用程序的响应速度。
+However, this problem can be solved by placing CDN nodes in China. The CDN nodes automatically cache data to data centers in the major cities throughout China, shortening the distance between users and content, and thereby reducing the time required to transfer data. Using CDN caching means that users can obtain content from a nearby location, resolving the issue of Internet network congestion, and increasing the response speed for users accessing websites and apps.
 
 
 ![][4]
 
 
-## 优势<a id="step2"></a>
+## Advantages<a id="step2"></a>
 
-### 对多种Windows Azure服务内置支持
+### Built-in support for many types of Microsoft Azure services
 
-默认对包括Storage Blob，Cloud Service， Websites，媒体服务等在内的多种Windows Azure服务的原生支持，为用户提供完整的一站式云服务支持。
+Native support for a number of different Microsoft Azure services, including Storage Blobs, Cloud Services, websites and media services, is offered by default, providing the user with comprehensive, one-stop cloud service support.
 
 ![][1]
 
 
-### 全自助化服务
+### Full self-service model
 
-传统的CDN服务需要很多复杂冗长的配置流程。对于Windows Azure CDN用户来说，从创建CDN加速节点，到之后的对CDN加速节点整个生命周期的管理，以及各种统计报表的查询，原始访问日志下载，各种高级功能（如缓存规则配置，缓存内容强制刷新，内容预加载，防盗链等）的配置，均可以通过Windows Azure管理门户以及专门的CDN管理门户自助完成。
+Traditional CDN services require a large amount of complex and tedious configuration processes. However, Microsoft Azure CDN users can accomplish every imaginable task themselves using the Microsoft Azure Management Portal and the dedicated CDN Management Portal, from creating CDN acceleration nodes to the subsequent management of the entire node life cycle, as well as checking a wide range of statistical reports, downloading raw access logs, and configuring various advanced functions (such as cache rule configuration, forced refreshing of cached content, content pre-loading, and anti-theft chains).
 
 ![][2]  
 
 ![][3]
 
-### 全网节点动态优化
+### Dynamic optimization of all network nodes
 
-整合国内多家主流CDN服务，提供全面的静态网页加速，软件安装包、游戏客户端、应用程序、影音等大文件的下载分发，以及在线视频网站、在线教育网站等以流媒体为主的视频点播和直播等多种业务类型加速，满足不同类型资源的分发需求；提供包含电信、联通、移动等主流电信运营商，以及其他 ISP运营商，全地区的全网覆盖，根据网络实时状况，通过负载均衡技术和智能调度策略，将用户请求分配到最优节点。
+The Microsoft Azure CDN service integrates mainstream CDN services from a number of China-based companies to provide comprehensive static webpage acceleration and acceleration for a range of service types, including download delivery for large files such as software installation packages, game clients, apps and videos, and VOD (video on demand) and streaming (direct-broadcast) targeted primarily at online video websites and online educational websites, thereby meeting the delivery needs of different types of resource. It also provides full network coverage spanning the entire region for mainstream telecoms carriers including China Telecom, China Unicom and China Mobile, as well as other ISPs, and allocates user requests to the optimal node using load balancing technology and intelligent dispatch strategies based on the real-time network status.
 
 
-### 节省成本
+### Reduces costs
 
-依托和多家主流CDN服务的合作优势，Windows Azure CDN可以给包括企业客户，网站支付用户在内的所有Azure用户，提供质优价廉的CDN服务。让更多的用户可以享受到CDN服务所带来的红利。
+Microsoft Azure CDN leverages the advantages of cooperation between mainstream CDN services from several companies to provide all Azure users - including business clients and website payment users - with high-quality, low-cost CDN services. This allows even more users to enjoy the benefits that CDN services bring.
 
-## 多场景加速
+## Acceleration for multiple scenarios
 
-Windows Azure CDN服务支持下面描述的多种加速场景，为用户打造出全方位多维度的加速服务。
+The Microsoft Azure CDN service supports all the different acceleration scenarios described below, creating a comprehensive and multidimensional acceleration service for users.
 
 ![][8]
 
-### 网站、小文件加速
+### Website and small file acceleration
 
-CDN的一个典型使用场景就是针对所谓的众多网站所使用的“小文件”（html网页文件，图片文件，JavaScript，CSS文件等）进行加速，使网站得到更好的用户体验，从而带来更多的用户访问量，最终带动整个业务的总体收入。典型的用户群体是面向互联网用户提供网站服务的众多大中小企业。
+One classic usage scenario for CDNs is providing acceleration for the so-called “small files” (e.g. HTML webpage files, image files, JavaScript files or CSS files) used by many websites, allowing the website to deliver a better user experience, and thereby increasing user visits and ultimately driving up revenues for the entire business. The typical user group would be small, medium and large enterprises providing website services for Internet users.
 
-### 大文件下载分发
+### Download delivery for large files
 
-CDN另外一个典型的应用场景就是针对大文件下载进行多节点分发，从而为最终的下载体验保驾护航。典型的用户场景如操作系统固件升级，新游戏发布上线（需要下载客户端安装包），手机APP更新等，如果没有使用CDN服务，就会对源站的带宽使用造成巨大的冲击，甚至导致源站停止服务。
+Another typical usage scenario for CDNs is to facilitate multi-node delivery of large file downloads, which ultimately ensures that the download experience proceeds smoothly. Without the use of CDN services, typical user scenarios such as operating system (OS) and firmware upgrades, publishing new games online (which require downloading client installation packages), and mobile app updates, would have a huge impact on source station bandwidth usage and could even cause the source station to stop working.
 
-### 流媒体加速
+### Streaming media acceleration
 
-近年来，随着网路视频媒体服务的增加，越来越多的人们习惯于使用网络平台来收听观看各种音视频。再加上国内网络环境的条件限制，这就对音视频内容的最终分发提出了非常高的要求。典型的用户群体是面向互联网用户提供服务的各类媒体网站，手机APP客户端。
+As the range of online video and media services has grown over the last few years, increasing numbers of people have got used to using Internet platforms to watch videos and listen to audio content. Given the limitations on the Internet environment in China, this places huge demands on the final delivery of audio and video content. The typical user group is all types of media website and mobile app clients providing services to Internet users.
 
-### HTTPS安全加速
+### HTTPS secure acceleration
 
-安全永远是用户最关心的话题，具体到CDN服务，Windows Azure CDN除了提供全面完善的HTTP访问类型的加速以外，还为对HTTPS访问协议有需要的用户提供专门的HTTPS类型加速服务。该加速服务从使用场景来说属于小文件加速服务，并能同时提供一定的动态路由访问优化服务。
+Security will always be the issue that users are most concerned about. In terms of how this specifically relates to CDN services, the Microsoft Azure CDN not only provides comprehensive acceleration for HTTP access, but also offers a dedicated HTTPS acceleration service for users that need access via the HTTPS access protocol. In terms of usage scenarios, this service could be categorized as a small file acceleration service, but also provides certain dynamic routing access optimization services.
 
 
-## 功能<a id="step3"></a>
+## Functions<a id="step3"></a>
 
-### 全自助化创建管理CDN加速节点
+### Full self-service creation and management of CDN acceleration nodes
 
-包括CDN加速节点的创建，删除，启用，禁用以及源站修改等功能在内，Windows Azure CDN对CDN加速节点的整个生命周期，提供全面自助化的管理配置服务。
+The Microsoft Azure CDN provides extensive self-service management and configuration services for the entire life cycle of CDN acceleration nodes, including functions such as creating, deleting, enabling and banning CDN acceleration nodes, as well as editing source stations.
 
 ![][5]
 
-### 流量带宽信息可视化查询
+### Visualized queries for traffic and bandwidth information
 
-通过专有的Windows Azure CDN管理门户可以方便、快捷、清晰的查看CDN加速域名相关的流量和带宽的使用情况。
+The dedicated Microsoft Azure CDN Management Portal allows for easy, quick and clear checking of traffic and bandwidth usage details for CDN acceleration domain names.
 
 ![][6]
 
 ![][7]
 
 
-### 缓存规则配置
+### Cache rule configuration
 
-系统已经针对不同的CDN加速类型提供了默认的缓存规则。用户也可以根据自己的实际需求进行定制化修改，以达到灵活控制缓存内容时间的目的。
+The system already provides default cache rules for various types of CDN acceleration. Users can also customize and edit rules according to their actual requirements, in order to achieve the goal of flexible control over content cache times.
 
 ![][9]
 
-### 防盗链
+### Anti-theft chain
 
-针对国内用户的特殊需求，Windows Azure CDN提供了防盗链等CDN内容访问控制功能。用户可以使用这些功能更好的对自己的加速内容做到有效的控制，以达到保护内容的目的。
+The Microsoft Azure CDN provides CDN content access control features to address the specific needs of users in China, including an anti-theft chain. Users can use these features to take better and more effective control over their accelerated content, in order to achieve the goal of keeping content protected.
 
 ![][10]
 
 
-### 缓存刷新
+### Cache refreshing
 
-有时用户更新完源站的某个文件之后，希望实时看到更新的结果能够反映在CDN服务节点上。但由于CDN有默认或用户设置过的缓存规则，所以一般不能实时的在所有的CDN节点上反映出更新变化。这时就是“缓存刷新”功能大显身手的时候了，用户可以对单个或者批量的文件进行强制缓存刷新。目的是让CDN服务将用户指定的文件从所有的CDN节点上清除，这样之后用户再次访问该文件时获取到的就是更新后的文件了。
+Sometimes when users finish updating a particular file on the source station, they want to see the results of the update reflected on the CDN service nodes in real time. However, as the CDN has default or user-defined cache rules, the updated changes are not generally apparent on all CDN nodes in real time. It is at times like this that the “cache refresh” function really comes into its own, as the user can force a cache refresh for individual files or batches of files. The goal is to make the CDN service clear the file(s) designated by the user from all CDN nodes, so that the next time a user accesses one of these files they will obtain the updated file.
 
 ![][11]
 
-### 内容预加载
+### Content pre-loading
 
-内容预加载是指预先将指定URL的内容从源站缓存到CDN节点，这样可以消除用户第一次访问该资源时的等待时间。内容预取一般被用在进行大文件分发时的场景，可以有效的提升用户访问体验。
+Content pre-loading means caching the content of a designated URL from the source station to the CDN nodes, in order to eliminate the waiting time the first time that the user accesses the resource. Content prefetching is generally used in scenarios involving the delivery of large files, where it can effectively improve the user access experience.
 
 ![][12]
 
-### 日志下载
+### Log downloads
 
-用户有时需要对CDN的加速效果，原始访问信息等做一些统计分析，这时用户就可以通过“日志下载”功能来获取这些原始的访问信息。在使用这个功能时需要用户提供一个可使用的Azure Storage帐户，Windows Azure CDN用来存放对应客户的日志访问文件。
+Users sometimes need to perform statistical analyses of CDN acceleration effectiveness or raw access information. In such situations, users can obtain such raw access information using the “log download” function. The user will need to provide an accessible Azure Storage account to use this feature, as the Microsoft Azure CDN will save the log access files for the corresponding customer(s) on this account.
 
 ![][13]
+
+### Service checks
+
+Once you have created a CDN service endpoint, you can use the “Service Check” view to see whether it is possible to access the source station, whether CDN deployment is complete, and whether CDN caching is working normally.
+
+![][14]
 
 <!--Image references-->
 [1]: ./media/cdn-overview/overview01.png
@@ -139,3 +145,6 @@ CDN另外一个典型的应用场景就是针对大文件下载进行多节点�
 [11]: ./media/cdn-overview/overview10.png
 [12]: ./media/cdn-overview/overview11.png
 [13]: ./media/cdn-overview/overview12.png
+[14]: ./media/cdn-overview/overview13.png
+
+<!---HONumber=CDN_1201_2015-->

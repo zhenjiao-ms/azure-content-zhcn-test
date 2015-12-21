@@ -1,286 +1,296 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to useWindows Azure CDN Management Portal advanced features - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 缓存刷新, 内容预取, 日志下载, 缓存规则, CDN 助文档, CDN技术文档, CDN" description="Learn how to use advanced features of Windows Azure CDN management portal to manage CDN endpoint" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to Use Microsoft Azure CDN Management Portal Advanced Features - Azure Feature Guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, cache refresh, content prefetch, log download, cache rules, CDN help files, CDN technical documentation, CDN" description="Learn how to use advanced features of Microsoft Azure CDN Management Portal to manage CDN endpoints" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
 <tags ms.service=""
     ms.date=""
-    wacn.date="11/27/2015"
+    wacn.date="12/04/2015"
     />
 
-# Windows Azure CDN 管理门户使用指南
+# Microsoft Azure CDN Management Portal User Guide
 
-Windows Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点上缓存Azure平台上的Storage Blob，Cloud Service和WebSites的静态内容，为开发人员提供一个传送高带宽内容的解决方案。目前本CDN服务也同时支持没有部署在Azure平台上的源站。
+The Microsoft Azure content delivery network (CDN) caches static content in Storage Blobs, Cloud Services, and websites on the Azure platform using large numbers of physical nodes distributed across Mainland China, in order to provide developers with a solution for delivering high-bandwidth content. This CDN service also currently supports the use of source stations that have not been deployed on the Azure platform.
 
-有关 Windows Azure CDN 的详细信息和价格，请参阅 [Windows Azure CDN服务介绍](http://www.windowsazure.cn/documentation/services/cdn/)。
+For more details and pricing for Microsoft Azure CDN, see [Introduction to the Microsoft Azure CDN Service](http://www.windowsazure.cn/documentation/services/cdn/).
 
-+ [概览](#step1)
-+ [域名管理](#step2)
-+ [流量报表](#step3)
-+ [带宽报表](#step4)
-+ [缓存刷新](#step5)
-+ [内容预取](#step6)
-+ [日志下载](#step7)
++ [Overview](#step1)
++ [Domain Name Management](#step2)
++ [Traffic Reports](#step3)
++ [Bandwidth Reports](#step4)
++ [Cache Refresh](#step5)
++ [Content Prefetch](#step6)
++ [Log Download](#step7)
++ [Service Check](#step8)
 
-## **Windows Azure CDN管理页面概览**<a id="step1"></a>
+## **Overview of the Microsoft Azure CDN Management Page**<a id="step1"></a>
 
-本页面显示了您的CDN订阅账号的基本信息。
+This page shows basic information on your CDN subscription account.
 
 ![][1]
 
-### **共有加速域名**
+### **Shared accelerated domain names**
 
-当前Azure订阅下已经创建的加速域名的统计数字。
+Statistics on accelerated domain names already created under the current Azure subscriptions.
 
-### **已启用加速域名**
+### **Accelerated domain names that are already enabled**
 
-当前Azure订阅下目前处于启用状态的加速域名的统计数字。
+Statistics on accelerated domain names that are currently enabled under the current Azure subscriptions.
 
-### **当月总流量**
+### **Total traffic for the current month**
 
-当前Azure订阅下本月所有的加速域名使用的流量总和，单位是MB.
+Total traffic in megabytes (MB) used by all accelerated domain names under the current Azure subscriptions during the current month.
 
-### **当月流量**
+### **Traffic for the current month**
 
-当前Azure订阅下当月每天的流量信息，单位是MB。 如果您需要了更详细的流量信息，可以在左侧的导航窗格中单击 “流量报表”，进入流量统计报表页面。
+Details of traffic in megabytes (MB) for each day in the current month under the current Azure subscriptions. If you need more detailed traffic information, you can single-click on “Traffic Reports” in the left navigation pane to go into the traffic statistics report page.
 
 
-### **当月带宽**
-当月每天的峰值带宽信息，单位是Kb/s。 如果您需要了解更详细的带宽信息，可以在左侧的导航窗格中单击 “带宽报表”，进入带宽统计报表页面。
+### **Bandwidth for the current month**
+Details of the peak bandwidth in Kb/s for each day in the current month. If you need more detailed bandwidth information, you can single-click on “Bandwidth Reports” in the left navigation pane to go into the bandwidth statistics report page.
 
 ![][2]
-## **域名管理**<a id="step2"></a>
+## **Domain Name Management**<a id="step2"></a>
 
-单击左侧导航窗格中 “域名管理”时，将显示当前Azure订阅下已经创建的所有CDN加速域名的列表视图。 你可以通过Azure订阅下拉列表选择不同的订阅查看不同订阅下的CDN加速域名信息。同时可以对加速域名进行**“修改配置”**，**“缓存规则配置”**和**“访问控制管理”**等操作。
+Single-clicking on “Domain Name Management” in the left navigation pane will display a list view of all CDN acceleration domain names created under the current Azure subscriptions. You can select different subscriptions from the Azure subscriptions drop-down list to see details of CDN acceleration domain names under different subscriptions. You can also perform operations including **“Edit Configuration”**, **“Cache Rule Configuration”** and **“Access Control Management”** on accelerated domain names.
 
-### **加速域名列表视图**
+### **Accelerated domain name list view**
 
 ![][3]
 
-#### **域名列表视图包括：**
+#### **The domain name list view includes:**
 
--   加速域名，用于访问CDN缓存内容的域名，该域名必须有相应的ICP备案信息。
--   CDN 域名，由Windows Azure CDN平台提供，都是以 **.mschcdn.com**结尾。
--   源站地址，CDN所缓存内容的原始位置。
--   加速类型 （目前支持“网站加速”，“下载加速”，“HTTP点播加速”和“流媒体直播加速”）
--   状态，开启或者关闭（包括ICP审核，需要CNAME配置，禁用等非**开启**状态）
+-   Accelerated domain names, i.e. domain names used to access CDN cached content; these domain names must be accompanied by the corresponding ICP record details.
+-   CDN domain names, which are provided by the Microsoft Azure CDN platform and all end with **.mschcdn.com**.
+-   Source station addresses, i.e. the origin domain for content cached on the CDN.
+-   Acceleration type (the acceleration types currently supported are “Website Acceleration”, “Download Acceleration”, “HTTP VOD Acceleration”, and “Live Streaming Media Acceleration”).
+-   Status, which may be either enabled or disabled (including ICP approval, requires CNAME configuration, banned, and other **non-enabled** statuses).
 
->**注意**
->您需要在CDN服务生效后（60分钟内），对你的加速域名配置CNAME映射信息，映射到微软提供的CDN域名。
+>**Note** that you need to configure the CNAME mapping details for your accelerated domain name after the CDN service takes effect (within 60 minutes), in order to map it to the CDN domain name provided by Microsoft.
 
->**注意**
->只有状态为**开启**的域名才可以正常使用CDN服务。
+>**Note** that only domain names with an **enabled** status can use the CDN service normally.
 
-#### **缓存规则配置视图**
+#### **Cache rule configuration view**
  
 ![][4]
 
-如上图，系统会根据缓存规则设置默认规则。用户可以根据需求加以调整。用户规则优先匹配，如果用户规则未命中，则逐条执行系统默认缓存规则。
+The system will set default rules based on the cache rules, as shown in the picture above. Users can adjust these settings to their own requirements. User rules are given priority in matching, and if there are no hits for user rules, the system default cache rules will be implemented item by item.
 
 
-#### **缓存规则配置**
+#### **Cache rule configuration**
 
-用户点击“配置缓存规则”后，可以根据需求设置对域名的缓存规则，包括：
+Users can click on “Cache rule configuration” and then set the required cache rules for domain names, including:
 
-- 根据目录进行配置
+- Directory-based configuration
 
-	目录必须以 "/" 开头，比如： "/pic", "/doc", "/htdoc/data" 等等。后台会匹配指定目录下的所有文件，**包括子目录**。
+	Directories must begin with “/”, for example "/pic", "/doc" or "/htdoc/data". The back-end will match all files within the designated directory, **including subdirectories**.
 
-- 根据文件后缀配置
+- File extension-based configuration.
 
-	常用文件后缀名，比如："jpg", "png", "gif", "txt", "m4v", "mp3" 等等。后台会匹配 **所有文件夹下** 指定的文件后缀。
+	Common file extension, such as "jpg", "png", "gif", "txt", "m4v" or "mp3". The back-end will match the specified file extension **within all folders**.
 
-- 根据全路径配置
+- Full path-based configuration
 
-	用来指定 **一个文件**，必须以 "/" 开头。比如："/sites/doc/example.doc"。**注意**：如果用户填的全路径是"/"，则它匹配首页。
+	Used to specify **a single file**, must start with "/". For example "/sites/doc/example.doc". **Note**: If the path entered by the user is “/”, it will match the homepage.
 
->**注意**
->用户填写配置规则时，字符串中不要包含 “{”, “}”, “(”, “)”, “[”, “]”, “.”, “?", “*”, “\”, “^”, “$” 等特殊字符。
+>**Note** that the character strings entered by the user when configuring rules must not include special characters such as “{”, “}”, “(”, “)”, “[”, “]”, “.”, “?", “*”, “\\”, “^”, “$”.
 
->**注意**
->时间填为0表示禁止缓存。
+>**Note** that entering a time of “0” means that caching is prohibited.
 
-#### **缓存配置顺序**
+#### **Cache configuration order**
 
-系统根据配置顺序**逐条匹配**，最先配置的规则具有最高优先级。规则被匹配后，其后的规则**不再**被匹配。
+The system will **perform matching item by item** on the basis of the order of configuration, with the rule configured first given the highest priority level. Once a rule is matched, subsequent rules will **no longer** be matched.
 
-#### **预定义模板**
+#### **Custom templates**
 
-用户可以通过 “应用预定义模板” 快速创建缓存配置规则。上图列出了用户选中“应用预定义模板”后，选择“常见文件”后创建的一个规则。用户可以根据需求对自动创建的规则进行修改。
+Users can use “Apply a custom template” to quickly create cache configuration rules. The diagram above shows a rule created after the user goes into “Apply a custom template” and selects “Common files”. Users can edit the automatically created rules as required.
 
-#### **禁止缓存设置**
+#### **Prohibiting cache setup**
 
-勾选“设置为禁止缓存”，则该加速域名将不会被缓存。
+If the user checks the “Set to caching prohibited” option, the accelerated domain name will not be cached.
 
-#### **访问控制管理**
+#### **Access control management**
 
-通过访问控制管理，用户可以设置配置Referer黑白名单，从而实现防盗链。
+Users can use access control management to set up and configure referer blacklists/whitelists, and thereby implement an anti-theft chain.
 
 ![][5]
 
-当防盗链开启之后，便可以编辑外链规则。每条规则是一个路径和文件名的组合。比如/ *.png表示根目录下所有的png文件。
+Once the anti-theft chain is enabled, you can edit the external link rules. Each rule is made up of a path and a filename. For example, / *.png means all png files in the root directory.
 
-每条规则是一个路径和文件名的组合。比如/ *.png表示根目录下所有的png文件。
+Each rule is made up of a path and a filename. For example, / *.png means all png files in the root directory.
 
-- 如果设置了黑名单，那么当Referer在黑名单里面的时候，不允许访问，其他情况可以访问。
-- 如果设置了白名单，那么只有当Referer是白名单中的域名时，才可以访问 。
+- If you set up a blacklist, access will be denied if the referer is in the blacklist, but will otherwise be permitted.
+- If you set up a whitelist, access will only be permitted if the referer is one of the domain names in the whitelist.
 
-点击“提交”按钮之后，等待操作结束，会显示操作是否成功。如果点击“提交并关闭”按钮，那么对话框会立即关闭。当用户下次再打开对话框时，会显示上次操作的状态。
+Once you have clicked on the “Submit” button and waited for the operation to finish, the interface will show whether the operation was successful. If you click on the “Submit and close” button, then the dialog box will close immediately. The next time the user opens the dialog box, it will show the status of the last operation.
 
-## **流量统计报表**<a id="step3"></a>
+## **Traffic Statistics Reports**<a id="step3"></a>
 
-你可以选择要查询的订阅（单选）、时间范围、加速域名（单个域名或全部），单击**刷新**按钮后界面将显示符合条件的流量统计报表，数据格式及含义请参见实际页面中的详细说明。
+Select the subscription (choose one), time range and accelerated domain names (individual domain names or all of them) you wish to check, then single-click on the **Refresh** button. The interface will display traffic statistics reports that meet the conditions you specified. Please refer to the explanations on the actual interface page for data format details and implications.
 
 ![][6]
 
-**流量统计报表具有以下功能：**
+**Traffic statistics reports have the following functions:**
 
--   有多个Azure 订阅的用户，可以查看单个订阅的流量以及回源流量统计。
--   有多个加速域名的Azure订阅，可以查询单个加速域名流量（以及回源流量）统计结果和所有加速域名流量（以及回源流量）汇总。
--   最小查询粒度精确到小时。
--   提供多种查询时间范围。 用户可以查询最近24小时，昨天，今天，最近七天，最近十五天，最近三十天和上个月的流量统计。也可以选择查询某个特定的时间段的流量以及回源流量 （统计时间范围不超过九十天）。
+-   Users with multiple Azure subscriptions can check traffic statistics for individual subscriptions, as well as return to source traffic statistics.
+-   If you have Azure subscriptions with multiple accelerated domain names, you can view individual accelerated domain name traffic (and return to source traffic) statistics results and summaries of all accelerated domain name traffic (and return to source traffic).
+-   The highest level for queries is accurate to the hour.
+-   Provides multiple time range types for queries. Users can check traffic statistics for the last 24 hours, yesterday, today, the last 7 days, the last 15 days, the last 30 days, or last month. Users can also check traffic and return to source traffic for a specific time period (the time range for statistics cannot exceed 90 days).
 
-## **带宽统计报表**<a id="step4"></a>
+## **Bandwidth Statistics Reports**<a id="step4"></a>
 
-选择要查询的订阅（单选）、时间范围、加速域名（单选和全部），单击**刷新**按钮后界面将显示符合条件的带宽统计报表，数据格式及含义请参见实际页面中的详细说明。
+Select the subscription (choose one), time range and accelerated domain names (individual domain names or all of them) you wish to check, then single-click on the **Refresh** button. The interface will display bandwidth statistics reports that meet the conditions you specified. Please refer to the explanations on the actual interface page for data format details and implications.
 
 ![][7]
 
-**带宽统计报表具有以下功能：**
+**Bandwidth statistics reports have the following functions:**
 
--   有多个Azure 订阅的用户，可以查询单个订阅的带宽统计和回源带宽统计。
--   有多个加速域名的Azure订阅，可以查询单个加速域名带宽（以及回源带宽）统计结果和所有加速域名带宽（以及回源带宽）汇总。
--   最小查询粒度精确到小时。
--   显示带宽峰值出现时间。
--   提供多种查询时间范围灵活选择。 你可以查询最近24小时，昨天，今天，最近七天，最近十五天，最近三十天和上个月的带宽统计。也可以选择查询某个特定的时间段的带宽（统计时间范围不超过九十天）。
+-   Users with multiple Azure subscriptions can check bandwidth statistics for individual subscriptions, as well as return to source bandwidth statistics.
+-   If you have Azure subscriptions with multiple accelerated domain names, you can view individual accelerated domain name bandwidth (and return to source traffic) statistics results and summaries of all accelerated domain name bandwidth (and return to source traffic) information.
+-   The highest level for queries is accurate to the hour.
+-   Displays the time at which peak bandwidth levels occur.
+-   Provides flexible time range options for queries. You can check bandwidth statistics for the last 24 hours, yesterday, today, the last 7 days, the last 15 days, the last 30 days, or last month. Users can also check bandwidth statistics for a specific time period (the time range for statistics cannot exceed 90 days).
 
-## **缓存刷新**<a id="step5"></a>
+## **Cache Refresh**<a id="step5"></a>
 
-单击左侧导航窗格中“缓存刷新”，可以对指定的文件或者目录进行手动刷新。
+Single-clicking on “Cache Refresh” in the bottom left navigation pane performs a manual refresh of the specified files or directories.
 
-### **缓存刷新列表视图**
+### **Cache refresh list view**
 
-选择要查询的订阅（单选）、状态、时间范围、加速域名（单选），单击**查询刷新结果**后界面将显示符合条件的缓存刷新记录，数据格式及含义请参见实际页面中的详细说明。
+Select the subscription (choose one), status, time range and accelerated domain name (choose one) you wish to check, then single-click on **Check Refresh Results**. The interface will display cache refresh records that meet the conditions you specified. Please refer to the explanations on the actual interface page for data format details and implications.
 
 ![][8]
 
-#### **缓存刷新列表视图包括：**
+#### **Cache refresh list view includes:**
 
--   加速域名，用于访问CDN缓存内容的URL
--   状态 (常见状态：成功，失败，刷新中）
--   提交时间
--   检测时间
+-   Accelerated domain names, which are URLs used to access CDN cache content.
+-   Status (common statuses: successful, failed, refreshing)
+-   Submission time
+-   Test time
 
-如果缓存刷新规则提交成功，状态栏会显示成功字样。如果失败的话，需要检查的缓存刷新规则是否正确。如果有问题，需要重新创建并提交缓存刷新规则。
+If the cache refresh rules were successfully submitted, the status bar will show the word “Successful”. If they were not successfully submitted, you will need to check that the cache refresh rules were correct. If there are any problems, you will need to recreate and resubmit the cache refresh rules.
 
-### **缓存刷新规则提交**
+### **Cache refresh rule submission**
 
-既可以对单个文件，也可以对一个目录下的所有文件配置缓存刷新规则。
+You can configure cache refresh rules for individual files, or for all files within a directory.
 
-#### **文件缓存刷新规则提交**
+#### **File cache refresh rule submission**
 
 ![][9]
 
-此任务包括下列步骤：
+This task includes the steps listed below:
 
-1. 单击 “提交文件刷新”按钮，进入文件刷新视图。
-2. 在“文件刷新”对话框中，从加速域名列表中选取你要配置的域名，输入相应文件路径。
-3. 你可以单击“+”增加新的规则，也可以单击“x”来删除对应的文件。
-4. 单击“提交”。
+1. Single-click on the “Submit File Refresh” button to enter the file refresh view.
+2. In the “File Refresh” dialog box, select the domain name you wish to configure from the list of accelerated domain names, and enter the corresponding file path.
+3. You can single-click on “+” to add a new rule, or “x” to delete the corresponding file.
+4. Single-click on “Submit”.
 
-这样，新建的文件缓存规则就会显示在缓存刷新列表视图中。
+The newly-created file cache rules will then be displayed in the cache refresh list view.
 
->**注意**
->当加速域名尚未ICP验证通过时，无法进行文件刷新操作，加速域名下拉列表为空。请等待后台验证通过。
+>**Note** that until the accelerated domain name has passed the ICP verification process, it will not be possible to perform a file refresh operation, and the accelerated domain name drop-down list will appear empty. Please wait until it has passed back-end verification.
 
-#### **目录缓存刷新规则提交**
+#### **Directory cache refresh rule submission**
 
 ![][10]
 
-此任务包括下列步骤：
+This task includes the steps listed below:
 
-1. 单击 “提交目录刷新”按钮，进入目录刷新视图。
-2. 在“目录刷新”对话框中，从加速域名列表中选取你要配置的域名，输入相应目录路径。
-3. 你可以单击“+”增加新的规则，也可以单击“x”来删除对应的目录。
-4. 单击“提交”。
+1. Single-click on the “Submit Directory Refresh” button to enter the directory refresh view.
+2. In the “Directory Refresh” dialog box, select the domain name you wish to configure from the list of accelerated domain names, and enter the corresponding directory path.
+3. You can single-click on “+” to add a new rule, or “x” to delete the corresponding directory.
+4. Single-click on “Submit”.
 
-这样，新建的目录缓存规则就会显示在缓存刷新列表视图中
+The newly-created directory cache rules will then be displayed in the cache refresh list view.
 
-## **内容预取**<a id="step6"></a>
-单击左侧的导航窗格中 “内容预取”，可以对指定的文件进行内容预取和预取进度查询操作。
+## **Content Prefetch**<a id="step6"></a>
+Single-click on “Content Prefetch” in the left navigation pane to perform content prefetch and prefetch progress query operations for specific files.
 
-内容预取是指预先将指定URL的内容从源站缓存到CDN节点，这样可以消除用户第一次访问该资源时的等待时间。内容预取一般被用在进行大文件分发时的场景，可以有效的提升用户访问体验。 
+Content prefetch means caching the content of a designated URL from the source station to the CDN nodes, in order to eliminate the waiting time the first time that the user accesses the resource. Content prefetching is generally used in scenarios involving the delivery of large files, where it can effectively improve the user access experience.
 
-### **内容预取列表视图**
+### **Content prefetch list view**
 
-可以选择要查询的订阅（单选）、状态、时间范围、加速域名（单选），单击**查询预取结果**后界面将显示符合条件的预缓存记录，数据格式及含义请参见实际页面中的详细说明。
+Select the subscription (choose one), status, time range and accelerated domain name (choose one) you wish to check, then single-click on **Check Prefetch Results**. The interface will display pre-caching records that meet the conditions you specified. Please refer to the explanations on the actual interface page for data format details and implications.
 
 ![][11]
 
-#### **内容预取列表视图包括：**
+#### **The content prefetch list view includes:**
 
--   加速域名，用于访问CDN缓存内容的URL
--   状态 （常见状态：成功，失败，进行中）
--   提交时间
+-   Accelerated domain names, which are URLs used to access CDN cache content.
+-   Status (common statuses: successful, failed, in progress)
+-   Submission time
 
 
-如果预缓存规则提交成功，状态栏会显示成功字样。如果失败的话，需要检查的预缓存规则是否正确。如果有问题，需要重新创建并提交预缓存规则。
+If the pre-cache rules were successfully submitted, the status bar will show the word “Successful”. If they were not successfully submitted, you will need to check that the pre-cache rules were correct. If there are any problems, you will need to recreate and resubmit the pre-cache rules.
 
-### **预缓存规则提交**
+### **Pre-cache rule submission**
 
-可以对单个文件或者多个文件配置预缓存。
+You can configure pre-caching for individual files or multiple files.
 
 ![][12]
 
-此任务包括下列步骤：
+This task includes the steps listed below:
 
-1. 单击 “提交预缓存加载”按钮，进入预缓存加载视图。
-2. 在“预缓存加载”对话框中，从加速域名列表中选取你要配置的域名，输入相应文件路径。
-3. 你可以单击“+”增加新的规则，也可以单击“x”来删除对应的文件。
-4. 单击“提交”。
+1. Single-click on the “Submit Pre-cache Loading” button to enter the pre-cache loading view.
+2. In the “Pre-cache Loading” dialog box, select the domain name you wish to configure from the list of accelerated domain names, and enter the corresponding file path.
+3. You can single-click on “+” to add a new rule, or “x” to delete the corresponding file.
+4. Single-click on “Submit”.
 
-这样，新建的预缓存加载规则就会显示在预缓存加载列表视图中。
+The newly-created pre-cache loading rules will then be displayed in the pre-cache loading list view.
 
-## **日志下载**<a id="step7"></a>
-单击左侧的导航窗格中 “日志下载”，可以对指定的域名设置CDN原始日志下载相关参数。
+## **Log Download**<a id="step7"></a>
+Single-click on “Log Download” in the left navigation pane to set CDN raw log download parameters for specific domain names.
 
-### **日志下载视图**
-日志下载需要用户首先提供一个 Azure Storage Account 用以存放CDN日志，点击“下载设置”进行设置。
+### **Log download view**
+In order to download logs, the user must first provide an Azure Storage Account used to save CDN logs. Click on “Download Settings” to set this up.
 
 ![][13]
 
-### **下载设置视图**
+### **Download settings view**
 
-在“下载设置”视图中，用户可以设置存储账号，以及需要下载日志的域名。设置完成后，系统会把搜集到的日志自动存放到指定的存储账号中。
-用户可以删除存储账号以取消日志下载。
+Users can set the Storage Account and the domain names for which log downloads are required in the “Download Settings” view. Once the setup is complete, the system will automatically save the logs it finds to the designated Storage Account. 
+Users can delete the Storage Account to cancel log downloads.
 
 ![][14]
 
-### **日志格式详解**
-日志以 blob 的形式存放在名为 "cdn-access-logs"的容器中。每个blob是一个GZip压缩后的CSV文件。其中每一栏的含义如下：
+### **Log format details**
+Logs are saved in Blob format with a container called "cdn-access-logs". Every Blob consists of a CSV file compressed with GZip. The meaning of each column within the log is given below:
 
-- c-ip： 客户端IP地址
-- timestamp： 访问时间
-- cs-method： HTTP请求动作，如GET/HEAD等。
-- cs-uri-stem： 请求的URI 
-- http-ver： HTTP协议版本
-- sc-status： HTTP状态码 
-- sc-bytes： 服务器向客户端传送的字节数
-- c-referer：客户端Referer URI
-- c-user-agent：客户端User Agent标识
-- rs-duration(ms)：完成请求花费的时间（单位毫秒）。
-- hit-miss：CDN缓存命中、丢失标识。
-- s-ip：生成日志的CDN边缘节点IP地址。
+- c-ip: client IP address
+- timestamp: access time
+- cs-method: HTTP request actions, such as GET/HEAD
+- cs-uri-stem: the requested URI 
+- http-ver: the HTTP protocol version number
+- sc-status: HTTP status code 
+- sc-bytes: number of bytes sent to the client by the server
+- c-referer: client-side referer URI
+- c-user-agent: client user agent identification
+- rs-duration (ms): time taken to complete the request (in milliseconds)
+- hit-miss: CDN cache hit and miss identification
+- s-ip: IP address of the CDN edge node generating the log
 
->**注意**
->如果CDN日志中未包括栏目内容，则相应记录标记为“-”，比如“c-referer”记录。此外，取决于边缘节点的日志配置，“rs-duration”、“hit-miss”、“s-ip”等记录也有可能为空。
+>**Note** that if the CDN log does not contain content for a particular column, the corresponding record, for example the “c-referer” record, will be marked “-”. Also, depending on the edge node log configuration, the “rs-duration”, “hit-miss” and “s-ip” columns may also be empty.
 
->**注意**
->网站通过CDN加速后，其访问记录多数来源于CDN边缘节点。CDN回源时，会在HTTP Header X-Forwarded-For 中填入原始IP，源站的Web服务器可以修改日志配置该信息。如果用户需要知道客户端原始IP地址，可以参考以下信息。
+>**Note** that once a website has been accelerated by the CDN, the majority of its access records will come from CDN edge nodes. When the CDN goes back to the source, it will enter the originating IP address in HTTP Header X-Forwarded-For, and the source station’s web server can edit the log to configure this information. If you need to find out the originating IP address of the client, you can refer to the information below.
 
->以 Nginx 为例，其配置文件可以加入如下信息：
+>If we take NGINX as an example, you can add the following information to the configuration file:
 
 >log_format logCDN '$remote_addr forwarded for $http_x_forwarded_for - $remote_user [$time_local]  '
                   '"$request" $status $body_bytes_sent '
                   '"$http_referer" "$http_user_agent"';
 
 >access_log /var/log/nginx/access.log logCDN;
+
+## **Service Check**<a id="step8"></a>
+
+Once you have created a CDN service endpoint, you can perform some basic checks in the “Service Check” view. We strongly recommend that users perform service checks before carrying out CNAME operations.
+
+![][15]
+
+As shown in the view above, the user must select the domain name to be checked, provide a resource that the source station can access, and then click on “Check”.
+
+1. Source station normal - indicates that the resource provided can be accessed.
+2. CDN deployment complete - indicates that the CDN services corresponding to the domain name have been deployed.
+3. CDN cache normal - indicates that the content accessed via the source station is consistent with the content accessed via the CDN (by comparing HTTP headers: HTTP Status Code, Last Modified Time, Content Length).
+
+>**Note** that using the Service Check function does not guarantee that there are no anomalies in any of the CDN edge servers where the domain name is located.
+
+ 
 
 [1]: ./media/cdn-unified-portal/001.png
 [2]: ./media/cdn-unified-portal/002.png
@@ -296,3 +306,6 @@ Windows Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物�
 [12]: ./media/cdn-unified-portal/prefetch-2.png
 [13]: ./media/cdn-unified-portal/log-download-1.png
 [14]: ./media/cdn-unified-portal/log-download-2.png
+[15]: ./media/cdn-unified-portal/service-check.png
+
+<!---HONumber=CDN_1201_2015-->
