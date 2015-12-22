@@ -1,62 +1,63 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to create Download acceleration type CDN - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN加速, CDN服务, 云加速, 下载加速, Download, 缓存规则, ICP, ICP备案号, ICP编号, 技术文档, 帮助文档, 带宽, 大文件下载, 软件升级安装包, 游戏下载加速, 应用程序下载加速, 手机app更新, 系统固件升级" description="Learn How to create Download acceleration type CDN on Windows Azure Management Portal and default caching rules for Download CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Create Download Acceleration-Type CDNs – Azure Feature Guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN acceleration, CDN service, cloud acceleration, download acceleration, download, cache rules, ICP, ICP record number, ICP number, technical documentation, help files, bandwidth, large file download, software upgrade installation package, game download acceleration, app download acceleration, mobile app update, firmware upgrade" description="Learn how to create Download Acceleration-type CDNs on Microsoft Azure Management Portal, and learn about default caching rules for Download CDNs." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
 <tags ms.service="cdn"
     ms.date=""
     wacn.date="11/27/2015"
     />
 
-#下载加速CDN节点创建
-下载加速主要针对20MB以上的大文件下载，例如软件安装包、游戏客户端、应用程序、影音等大文件的下载分发。Windows Azure CDN将文件缓存到CDN边缘节点，缓解源站下载的带宽压力，提高用户下载体验。
+#Create download acceleration CDN nodes
+Download Acceleration is primarily intended for use with downloads of large files of 20MB or more, for example with download delivery for software installation packages, game clients, apps, or videos. The Microsoft Azure CDN caches the files to the CDN edge nodes, relieving bandwidth pressure on source station downloads and improving the user’s download experience.
 
-下载加速适用于操作系统固件升级，游戏客户端，手机app更新，应用程序下载等用户场景。
+Download Acceleration is suitable for use in scenarios such as downloading operating system (OS) and firmware upgrades, game clients, mobile app updates, and computer applications.
 
-本文是针对下载类型加速域名创建，您也可以参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)了解基本的Windows Azure CDN加速节点创建信息。
+This article is about creating domain names for download acceleration. You can also refer to [Using Microsoft Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/) to find out about the basics of creating Microsoft Azure CDN acceleration nodes.
 
-###**下载加速默认缓存规则**
-Windows Azure CDN针对下载加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Windows Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
+###**Default cache rules for download acceleration**
+The Microsoft Azure CDN sets default cache rules (see below) for Download Acceleration. You can also set custom cache rules according to your own requirements. For specific details, see the Microsoft Azure CDN Management Portal advanced management help file on “Domain Name Management.” If the source station content changes or is updated, but the cache time to live (TTL) has not yet expired, you can manually refresh the CDN cache files to synchronize the updated source station content in real time. For specific details, see the Microsoft Azure CDN Management Portal advanced management help file on “Cache Refreshing.”
 
-**下载加速系统默认缓存规则**
+**The system’s default cache rules for Download Acceleration**
 
-1. 对php、aspx、asp、jsp、do等动态文件不缓存。
-2. 对7z、apk、 wdf、 cab、 dhp、exe、flv、gz、ipa、iso、mpk、MPQ、pbcv、pxl、qnp、r00、rar、xy、xy2、zip、CAB等文件缓存一个月。
+1. Dynamic files—such as those with the extensions PHP, ASPX, ASP, JSP and DO—are not cached.
+2. Files with the extensions 7Z, APK, WDF, CAB, DHP, EXE, FLV, GZ, IPA, ISO, MPK, MPQ, PBCV, PXL, QNP, R00, RAR, XY, XY2, ZIP, and CAB are cached for one month.
 
-###**创建下载类型加速域名**
+###**Create domain names for download acceleration**
 
-1. 在 Windows Azure 管理门户的导航窗格中，单击“CDN”。
-2. 在功能区上，单击“新建”。在“新建”对话框上，依次选择“应用服务”、“CDN”和“快速创建”。
-3. 在“加速类型”下拉列表中选择“下载加速”。
+1. In the navigation pane of the Microsoft Azure Management Portal, click “CDN.”
+2. In the function area, click “Create New.” In the “Create New” dialogue box, select “App Services,” “CDN,” and “Quick Create” in that order.
+3. Select “Download Acceleration” from the “Acceleration Type” drop-down list.
 
     ![011](./media/cdn-doc/011.png)
 
-4. 在“原始域类型”下拉列表中，选择云服务，存储账户，WEB应用，或者自定义原始域。**注意**“下载加速”不支持“媒体服务”原始域类型。
-5. 在“原始域”下拉列表中，从可用的云服务，存储帐户，或者WEB应用列表中选择一个用于创建CDN终结点。  
+4. In the “Origin Domain Type” drop-down list, select cloud service, storage account, web app, or a customized origin domain. **Note** that Download Acceleration does not support the “media service” origin domain type.
+5. In the “Origin Domain” drop-down list, select one option from the list of available cloud services, storage accounts, or web apps for use in creating the CDN endpoint. 
     ![012](./media/cdn-doc/012.png)
 
-    如果“原始域类型”选择的是“自定义原始域”，那么请在“原始域”里输入您自己的原始域地址。您可以填写一个或者多个原始域ip地址，多个请以“;”分隔，如“126.1.1.1;172.1.1.1），或者原始域名，如origin.azurechina.com
+    If the selected “Origin Domain Type” is “Customized Origin Domain,” input your own origin domain address under “Origin Domain.” You can enter one or multiple origin domain IP addresses (separate multiple addresses with semicolons, e.g. “126.1.1.1;172.1.1.1”), or an origin domain name such as “origin.azurechina.com.”
 
     ![008](./media/cdn-doc/008.png)
 
-6. 在“自定义域”中输入要使用的自定义域名如：cdn1.azurechinatest.com。自定义域支持泛域名加速。
-7. 在“原点主机标头（origin host header）”中输入您的源站所接受的回源访问host header。当您输入完“自定义域”之后，系统会根据您所选择的“原始域类型”来自动填充一个默认值。具体的规则是，如果您的源站是在Azure上的话，默认值就是相应的源站地址。如果您的源站不在Azure上，默认值是您输入的“自定义域名”，当然您也可以根据自己源站的实际配置情况来修改。
+6. In “Custom Domain,” enter the custom domain name you wish to use, e.g. cdn1.azurechinatest.com. Custom domains support extensive domain name acceleration.
+7. In “Origin Host Header,” enter the return to source access host header accepted by your source station. Once you have entered the “Custom Domain,” the system will automatically fill in a default value based on the “Origin Domain Type” you selected. To be more specific, if your source station is on Azure, the default value will be the corresponding source station address. If your source station is not on Azure, the default value will be the “Custom Domain” that you entered. Of course, you can also modify this based on the actual configuration of your source station.
 
-    原始域类型是存储账户，对应的回源主机标头：
+    If the origin domain type is a storage account, the corresponding return to source host header is:
 
     ![007](./media/cdn-doc/007.png)  
     
-    原始域类型是自定义原始域对应的回源主机标头：
+    If the origin domain type is a custom origin domain, the corresponding return to source host header is:
 
     ![013](./media/cdn-doc/013.png)
     
       
-8. 在“ICP编号”中输入和上一步中所输入的自定义域名相对应的ICP备案号（如：京ICP备XXXXXXXX号-X）。
+8. In “ICP Number,” enter the corresponding ICP record number for the custom domain that you entered (e.g., Jing ICP Bei XXXXXXXX Hao-X).
      
-    ![009](./media/cdn-doc/009.png) 
+    ![009](./media/cdn-doc/009.png)
 
-9. 单击“创建”按钮以创建新的终结点。
+9. Click “Create” to create the new endpoint.
 
-终结点创建后将出现在订阅的终结点的列表中。列表视图显示了用于访问缓存内容的自定义域以及原始域。
-原始域是 CDN 所缓存内容的原始位置。自定义域是用于访问CDN缓存内容的URL。
+Once the endpoint has been created, it will appear in the list of subscribed endpoints. 
+The list view shows the custom domains used to access cached content, as well as the origin domains. The origin domain is the original location of the content cached on the CDN. Custom domains are URLs used to access CDN cache content.
 
    ![010](./media/cdn-doc/010.png)
 
-> **注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Windows Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/)中步骤2：创建新的CDN终结点的后半部分。
+> **Note** that configurations created for endpoints cannot be used immediately; they must first pass checks to confirm that the ICP custom domain name matches the ICP number. For more details, see the second half of Step 2: Create new CDN endpoints in [Using Microsoft Azure CDN](http://www.windowsazure.cn/documentation/articles/cdn-how-to-use/).
 
+<!---HONumber=CDN_1201_2015-->

@@ -1,9 +1,9 @@
 
-| 资源 | 软性限制 
+| Resources | Soft constraints 
 --- | ---
-| CDN 终结点 | 50
-| 每个客户的自定义域数| 16
+| CDN endpoints | 50
+| Number of custom domains per customer| 16
 
-你可以通过开具支持票证来请求更新软性限制。
+You can request soft constraint updates by issuing a support ticket.
 
-<!---HONumber=71-->
+<!---HONumber=CDN_1201_2015-->
