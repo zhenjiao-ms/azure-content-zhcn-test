@@ -1,87 +1,87 @@
-# Using Microsoft Azure CDN
+# Use Microsoft Azure Content Delivery Network
 
-The Microsoft Azure content delivery network (CDN) caches static content in Storage Blobs, Cloud Services, and Websites on the Azure platform using large numbers of physical nodes distributed across mainland China in order to provide developers with a solution for delivering high-bandwidth content. This CDN network also currently supports the use of source stations that have not been deployed on the Azure platform.
+Microsoft Azure Content Delivery Network caches static content in storage blobs, cloud services, and websites on the Azure platform by using large numbers of physical nodes that are distributed across mainland China to provide developers with a solution for delivering high-bandwidth content. This network also currently supports the use of source stations that have not been deployed on the Azure platform.
 
 This task includes the steps listed below:
 
-+ [Step 1: Create a storage account, cloud service, website or media service](#step1)
-+ [Step 2: Create a new CDN endpoint](#step2)
-+ [Step 3: Access CDN content](#step3)
-+ [Step 4: Delete content from the CDN](#step4)
++ [Step 1: Create a storage account, cloud service, website, or media service](#step1)
++ [Step 2: Create a new Content Delivery Network endpoint](#step2)
++ [Step 3: Access content in Content Delivery Network](#step3)
++ [Step 4: Delete content from Content Delivery Network](#step4)
 + [Step 5: Use advanced management features](#step5)
 
-The advantages of using the CDN to cache Microsoft Azure data include:
+The advantages of using Content Delivery Network to cache Azure data include:
 
-- Better performance and user experience for end users of apps with distant content sources which require the use of multiple “Internet journeys” to load content
-- Large-scale distribution enables the system to cope better with transient high loads (for example, at the start of events such as product launches)
+- Better performance and user experience for end users of apps with distant content sources that require the use of multiple Internet journeys to load content.
+- Large-scale distribution that enables the system to cope better with transient high loads (for example, at the start of events such as product launches).
 
-Existing Microsoft Azure customers in China can now use the Microsoft Azure CDN in the [Microsoft Azure Management Portal](https://manage.windowsazure.cn/).
+Existing Azure customers in China can now use Content Delivery Network in the [Microsoft Azure portal](https://manage.windowsazure.cn/).
 
-## Step 1: Create storage account, cloud service, website or media service<a id="step1"></a>
-You can create CDN endpoints for storage accounts, cloud services, websites, or media services in existing Microsoft Azure subscriptions. You can also create new storage accounts, cloud services, or websites for use in Microsoft Azure subscriptions using the method below:
+## Step 1: Create a storage account, cloud service, website, or media service<a id="step1"></a>
+You can create Content Delivery Network endpoints for storage accounts, cloud services, websites, or media services in existing Azure subscriptions. You can also create new storage accounts, cloud services, or websites for use in Azure subscriptions by using the following method:
 
-### Create a storage account for Microsoft Azure subscriptions
-Please refer to [How to Create Storage Accounts](http://www.windowsazure.cn/zh-cn/documentation/articles/storage-create-storage-account/)
+### Create a storage account for Azure subscriptions
+Refer to [How to create storage accounts](http://www.windowsazure.cn/zh-cn/documentation/articles/storage-create-storage-account/)
 
-### Create a cloud service for Microsoft Azure subscriptions
-Please refer to [How to Create and Deploy Cloud Services](http://www.windowsazure.cn/zh-cn/documentation/articles/cloud-services-how-to-create-deploy/)
+### Create a cloud service for Azure subscriptions
+Refer to [How to create and deploy cloud services](http://www.windowsazure.cn/zh-cn/documentation/articles/cloud-services-how-to-create-deploy/)
 
-### Create a website for Microsoft Azure subscriptions
-Please refer to [How to Create and Deploy Websites](http://www.windowsazure.cn/zh-cn/documentation/articles/web-sites-create-deploy/)
+### Create a website for Azure subscriptions
+Refer to [How to create and deploy websites](http://www.windowsazure.cn/zh-cn/documentation/articles/web-sites-create-deploy/)
 
 ### Create a media service for Microsoft Azure subscriptions
-Please refer to [How to Create and Deploy Media Services](http://www.windowsazure.cn/documentation/articles/media-services-create-account/)
+Refer to [How to create and deploy media services](http://www.windowsazure.cn/documentation/articles/media-services-create-account/)
 
-## Step 2: Create a new CDN endpoint<a id="step2"></a>
-Once a storage account is enabled, all publicly available objects are entitled to access CDN edge high-speed caching for CDN access to cloud services or websites. If you edit an object that is currently cached in the CDN, the new content will only be accessible via the CDN after the CDN time to live (TTL) expires and the object’s content is updated (or after a manual refresh is performed using the advanced management features).
+## Step 2: Create a new Content Delivery Network endpoint<a id="step2"></a>
+Once a storage account is enabled, all publicly available objects are entitled to access the network edge high-speed caching for access to cloud services or websites. If you edit an object that is currently cached in the network, the new content will be accessible only via the network after the time to live (TTL) expires and the object’s content is updated (or after a manual refresh is performed by using the advanced management features).
 
-### Create a new CDN endpoint
-1. In the navigation pane of the [Microsoft Azure Management Portal](https://manage.windowsazure.cn/), click on “CDN”.
-2. In the function area, click “Create New”. In the “Create New” dialogue box, select “App Services”, “CDN” and “Quick Create” in that order.
+### Create a new Content Delivery Network endpoint
+1. In the navigation pane of the [Microsoft Azure portal](https://manage.windowsazure.cn/), click Content Delivery Network.
+2. In the Function area, click Create New. In the Create New dialog box, select App Services, CDN, and Quick Create in that order.
 
     ![CDN Quick Create][1]
-3. Select all the Azure subscriptions you wish to use from the “Subscriptions” drop-down list (if there are multiple subscriptions).
-4. Select the acceleration type from the “Acceleration Type” drop-down list. The types of acceleration currently supported are “Web Acceleration”, “Download Acceleration”, “HTTP VOD (Video On Demand) Acceleration” and “Live Streaming (Video Direct Broadcast) Acceleration”.
-5. In the “Origin Domain Type” drop-down list, select cloud service, storage account, Web app, media service or a customized origin domain.
-6. In the “Origin Domain” drop-down list, select the endpoint used to create the CDN from the cloud services, storage account, Web app or media services list. If the selected “Origin Domain Type” is “Customized Origin Domain”, please input your own origin domain address under “Origin Domain”.
-7. In “Custom Domain”, enter the customized domain name you wish to use, e.g. cdn.yourcompany.com.
-8. In “Origin Host Header”, enter the return to source access host header accepted by your source station. Once you have entered the “Custom Domain”, the system will automatically fill in a default value based on the “Origin Domain Type” you selected. To be more specific, if your source station is on Azure, the default value will be the corresponding source station address. If your source station is not on Azure, the default value will be the “Custom Domain” that you entered. Of course, you can also modify this based on the actual configuration of your source station.
-9. In the “ICP Number”, enter the corresponding **ICP record number** for the custom domain that you entered (e.g. Jing ICP Bei XXXXXXXX Hao-X).
-10. Click the “Create” button to create the new endpoint.
-11. Once the endpoint has been created, it will appear in the list of subscribed endpoints. The list view shows the custom domains used to access cached content, as well as the origin domains.
+3. Select all Azure subscriptions you wish to use from the Subscriptions drop-down list (if there are multiple subscriptions).
+4. Select the acceleration type from the Acceleration Type drop-down list. The types of acceleration currently supported are Web Acceleration, Download Acceleration, HTTP VoD (Video on Demand) Acceleration, and Live Streaming (Video Direct Broadcast) Acceleration.
+5. In the Origin Domain Type drop-down list, select Cloud Service, Storage Account, Web App, Media Service, or a customized origin domain.
+6. In the Origin Domain drop-down list, select the endpoint that was used to create the network from the cloud service, storage account, web app, or media service list. If the selected Origin Domain Type is Customized Origin Domain, input your own origin domain address under Origin Domain.
+7. In Custom Domain, enter the customized domain name you wish to use, e.g., cdn.<yourcompany>.com.
+8. In Origin Host Header, enter the return-to-source access host header that your source station accepted. Once you have entered the custom domain, the system will automatically fill in a default value based on the origin domain type that you selected. To be more specific, if your source station is on Azure, the default value will be the corresponding source station address. If your source station is not on Azure, the default value will be the custom domain that you entered. Of course, you can also modify this based on the actual configuration of your source station.
+9. In ICP Number, enter the corresponding **ICP record number** for the custom domain that you entered (e.g., Jing ICP Bei XXXXXXXX Hao-X).
+10. Click Create to create the new endpoint.
+11. Once the endpoint has been created, it will appear in the list of subscribed endpoints. The list view shows the custom domains that were used to access cached content, as well as the origin domains.
 
-The origin domain is the original location of the content cached on the CDN. Custom domains are URLs used to access CDN cache content.
+The origin domain is the original location of the content cached on Content Delivery Network. Custom domains are URLs that are used to access cache content.
 > **Note** that configurations created for endpoints cannot be used immediately:
 
-> 1. the custom domain name and ICP number provided must first be reviewed to ensure that they match and are valid. This process can take up to **one business day** to complete.
-2. If the details provided do not pass the ICP review, you must delete the CDN endpoint you created and create a new endpoint using the correct custom domain name and ICP number.
-3. If the details pass the ICP review, the CDN service will be registered within **60 minutes** so that it can be propagated by the CDN network. At the same time, you also need to configure the CNAME mapping details, as indicated by the notifications in the interface, before the CDN cache content can finally be accessed via the custom domain name.
+> 1. The custom domain name and ICP number that you entered must first be reviewed to ensure that they match and are valid. This process can take up to **one business day** to complete.
+2. If the details do not pass the ICP review, you must delete the Content Delivery Network endpoint you created and create a new endpoint by using the correct custom domain name and ICP number.
+3. If the details pass the ICP review, the service will be registered within **60 minutes** so that it can be propagated by the network. At the same time, you also need to configure the CNAME mapping details, as indicated by the notifications in the interface, before the cache content can finally be accessed via the custom domain name.
 
-## Step 3: Access CDN content<a id="step3"></a>
-If you want to access content cached on the CDN, please do so using the custom domain name you provided in Step 2. The addresses of cached Blobs are similar to the following address (using the example from Step 2):
+## Step 3: Access content in Content Delivery Network<a id="step3"></a>
+If you want to access content cached on the network, do so by using the custom domain name you provided in Step 2. The addresses of cached blobs are similar to the following address (using the example from Step 2):
 
 `http://cdn.yourcompany.com/<myPublicContainer>/<BlobName>`
 
-## Step 4: Delete content from the CDN<a id="step4"></a>
-If you don’t want to continue to cache objects on the Microsoft Azure content delivery network (CDN), you can use any one of the following procedures:
+## Step 4: Delete content from the Content Delivery Network<a id="step4"></a>
+If you don’t want to continue to cache objects on Content Delivery Network, you can use any one of the following procedures:
 
-- In the case of Microsoft Azure Blobs, delete the Blob from the Public Container.
-- Generate a Private Container to replace the Public Container. For more information on this, please refer to [Restricting Access to Containers and Blobs](http://msdn.microsoft.com/zh-cn/library/dd179354.aspx).
-- You can use the Management Portal to ban or delete CDN endpoints.
-- You can change the Cloud Service to a request that no longer responds to this object.
+- For Azure blobs, delete the blob from the public container.
+- Generate a private container to replace the public container. For more information on this, refer to [Restricting access to containers and blobs](http://msdn.microsoft.com/zh-cn/library/dd179354.aspx).
+- You can use the Azure portal to ban or delete Content Delivery Network endpoints.
+- You can change the cloud service to a request that no longer responds to this object.
 
-Objects already cached in the CDN will remain in a cached state until the TTL for the object expires. Once the TTL expires, the CDN will check whether the CDN endpoint is still valid and whether anonymous access to the object is still possible. If the object cannot be accessed, it will no longer be cached.
+Objects already cached in Content Delivery Network will remain in a cached state until the TTL for the object expires. Once the TTL expires, the network will check whether the endpoint is still valid and whether anonymous access to the object is still possible. If the object cannot be accessed, it will no longer be cached.
 
 
 ## Step 5: Use advanced management features<a id="step5"></a>
-Once you have created a new CDN endpoint, you can use the Management Portal to check the basic configuration details and perform other basic operations, such as banning/enabling and deleting CDN endpoints. You can also click on the “Management” button to jump to another management page, where you can use the advanced management functions:
+Once you have created a new Content Delivery Network endpoint, you can use the Azure portal to check the basic configuration details and perform other basic operations, such as banning/enabling and deleting network endpoints. You can also click the Management button to jump to another management page, where you can use the advanced management functions:
 
 ![Manage Button][2]
-> **Note: You will be taken to another CDN management page that is not part of the Microsoft Azure Management Portal. (Please ensure that you allow your browser to open the new window)**
+> **Note: You will be taken to another Content Delivery Network management page that is not part of the Azure portal. (Ensure that you allow your browser to open the new window)**
 
 ![Adv Portal][3]
 
-This advanced management interface provides features including “Overview”, “Domain Name Management”, “Traffic Report”, “Bandwidth Report”, “Cache Refresh”, “Content Prefetch”, and “Log Download”. For specific methods of using and configuring the interface, you can click to enter the corresponding function modules, and then read the corresponding help files. You can also open the help files directly via the left navigation bar.
+This advanced management interface provides features including overview, domain name management, traffic report, bandwidth report, cache refresh, content prefetch, and log download. For specific methods of using and configuring the interface, click to enter the corresponding function modules, and then read the corresponding help files. You can also open the help files directly via the left navigation bar.
 
 
 
