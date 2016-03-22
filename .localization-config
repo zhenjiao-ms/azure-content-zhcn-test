@@ -12,7 +12,7 @@
             {  
                "priority":"high",
                "locales":[  
-                  "en-us",
+                  "en-us"
                ]
             }
          ]
@@ -28,7 +28,7 @@
             {  
                "priority":"test-priority-high",
                "locales":[  
-                  "en-us",
+                  "en-us"
                ]
             }
          ]
@@ -42,7 +42,7 @@
             {  
                "priority":"ht",
                "locales":[  
-                  "en-us",
+                  "en-us"
                ]
             }
          ]
