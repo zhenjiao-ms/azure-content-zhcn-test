@@ -48,4 +48,4 @@ CPIF 介绍了组织、客户和合作伙伴应该如何设计和部署使用混
 
 [Azure 搜索层](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=71-->
+<!---HONumber=71--->
